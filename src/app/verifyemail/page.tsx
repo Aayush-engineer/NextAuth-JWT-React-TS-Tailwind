@@ -22,17 +22,18 @@ export default function VerifyEmailPage(){
     }
 
    }
-   useEffect(() => {
-      const urlToken = window.location.search.split("=")[1];
-      setToken(urlToken || "");
-   },[])
+   
 
    useEffect(() => {
-      if(token.length > 0){
-        verifyUserEmail();
-      }
+  const urlToken = window.location.search.split("=")[1];
+  setToken(urlToken || "");
+}, [verifyUserEmail]); 
 
-   },[token]);
+useEffect(() => {
+  if (token.length > 0) {
+    verifyUserEmail();
+  }
+}, [token, verifyUserEmail]); 
 
    return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">

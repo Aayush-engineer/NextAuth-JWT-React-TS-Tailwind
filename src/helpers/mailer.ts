@@ -1,5 +1,3 @@
-// domain.com/verifytoken/assasasdfdgfdffg
-// domain.com/verifytoken?token=adadfd
 
 import nodemailer from 'nodemailer';
 import User from '@/models/userModel';
@@ -40,6 +38,8 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
     return mailresponse;
 
   } catch (error: any) {
+    console.error('Error sending email:', error.message);
+    console.error('Error details:', error);
     throw new Error(error.message);
   }
 }
