@@ -22,7 +22,17 @@ export default function VerifyEmailPage(){
     }
 
    }
-   
+   useEffect(() => {
+      const urlToken = window.location.search.split("=")[1];
+      setToken(urlToken || "");
+   },[verifyUserEmail])
+
+   useEffect(() => {
+      if(token.length > 0){
+        verifyUserEmail();
+      }
+
+   },[token,verifyUserEmail]);
 
    useEffect(() => {
   const urlToken = window.location.search.split("=")[1];
