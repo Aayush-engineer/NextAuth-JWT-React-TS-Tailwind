@@ -6,9 +6,6 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 
-
-
-
 export default function LoginPage() {
     const router = useRouter();
     const [user, setUser] = React.useState({
@@ -28,7 +25,7 @@ export default function LoginPage() {
             toast.success("Login success");
             router.push("/profile");
         } catch (error:any) {
-            console.log("Login failed", error.message);
+            console.log("Login failed hai", error.message);
             toast.error(error.message);
         } finally{
         setLoading(false);
